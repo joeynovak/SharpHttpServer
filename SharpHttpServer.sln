@@ -5,6 +5,18 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpHttpServer", "SharpHttpServer\SharpHttpServer.csproj", "{89B60354-856A-4F3C-9435-DB3CFD31515A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{08F3C505-A097-4DAE-972A-837E6FECFBD6}"
+	ProjectSection(SolutionItems) = preProject
+		build.ps1 = build.ps1
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{4C46FE78-1464-498A-BEB5-8A6FF4719FF2}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet\NuGet.exe = NuGet\NuGet.exe
+		NuGet\SharpHttpServer.csproj.nuspec = NuGet\SharpHttpServer.csproj.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
