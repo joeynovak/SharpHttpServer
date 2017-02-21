@@ -16,6 +16,10 @@ namespace Qoollo.Net.Http
 
         private readonly int port;
 
+        public string Hostname { get; set; } = "localhost";
+
+        public string Scheme { get; set; }= "http";
+
         public HttpServer(int port)
         {
             if (!HttpListener.IsSupported)
@@ -87,59 +91,59 @@ namespace Qoollo.Net.Http
             listener.Close();
         }
 
-        protected RequestHandlerRegistrator Get
+        public RequestHandlerRegistrator Get
         {
             get { return router.GetRegistrator(HttpMethod.Get); }
         }
 
-        protected RequestHandlerRegistrator Post
+        public RequestHandlerRegistrator Post
         {
             get { return router.GetRegistrator(HttpMethod.Post); }
         }
 
-        protected RequestHandlerRegistrator Put
+        public RequestHandlerRegistrator Put
         {
             get { return router.GetRegistrator(HttpMethod.Put); }
         }
 
-        protected RequestHandlerRegistrator Delete
+        public RequestHandlerRegistrator Delete
         {
             get { return router.GetRegistrator(HttpMethod.Delete); }
         }
 
-        protected RequestHandlerRegistrator Options
+        public RequestHandlerRegistrator Options
         {
             get { return router.GetRegistrator(HttpMethod.Options); }
         }
 
-        protected RequestHandlerRegistrator Patch
+        public RequestHandlerRegistrator Patch
         {
             get { return router.GetRegistrator(HttpMethod.Patch); }
         }
 
-        protected RequestHandlerRegistrator Head
+        public RequestHandlerRegistrator Head
         {
             get { return router.GetRegistrator(HttpMethod.Head); }
         }
 
-        protected RequestHandlerRegistrator Connect
+        public RequestHandlerRegistrator Connect
         {
             get { return router.GetRegistrator(HttpMethod.Connect); }
         }
 
-        protected RequestHandlerRegistrator Trace
+        public RequestHandlerRegistrator Trace
         {
             get { return router.GetRegistrator(HttpMethod.Trace); }
         }
 
-        protected void ServeStatic(DirectoryInfo directory, string path = "")
+        public void ServeStatic(DirectoryInfo directory, string path = "")
         {
             router.ServeStatic(directory, path);
         }
 
         private string BuildUri(string path = "", string query = "")
-        {
-            return new UriBuilder("http", "localhost", port, path, query).ToString();
+        {            
+            return new UriBuilder(Scheme, Hostname, port, path, query).ToString();
         }
 
         private void ProcessRequest(HttpListenerContext ctx, Func<HttpListenerRequest, string> handler)
@@ -155,7 +159,7 @@ namespace Qoollo.Net.Http
             }
         }
 
-        private void Respond200(HttpListenerContext ctx, string content)
+        public void Respond200(HttpListenerContext ctx, string content)
         {
             ctx.Response.StatusCode = 200;
             ctx.Response.StatusDescription = "The request was fulfilled.";
@@ -164,13 +168,13 @@ namespace Qoollo.Net.Http
             ctx.Response.OutputStream.Write(buf, 0, buf.Length);
         }
 
-        private void Respond404(HttpListenerContext ctx)
+        public void Respond404(HttpListenerContext ctx)
         {
             ctx.Response.StatusCode = 404;
             ctx.Response.StatusDescription = "The server has not found anything matching the URI given.";
         }
 
-        private void Respond500(HttpListenerContext ctx)
+        public void Respond500(HttpListenerContext ctx)
         {
             ctx.Response.StatusCode = 500;
             ctx.Response.StatusDescription = "The server encountered an unexpected condition which prevented it from fulfilling the request.";
@@ -179,6 +183,8 @@ namespace Qoollo.Net.Http
         #region IDisposable Support
 
         private bool disposed = false; // To detect redundant calls
+        private string hostname;
+        private string _scheme;
 
         protected virtual void Dispose(bool disposing)
         {
