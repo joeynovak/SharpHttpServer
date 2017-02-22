@@ -21,6 +21,7 @@ namespace Qoollo.SharpHttpServer.DemoConsoleApp
 
             Get["/api/v1/certificate"] = Certificate;
 
+            Get["/other"] = Server.Other;
             ServeStatic(new DirectoryInfo("html"), "static");
         }
 
@@ -44,6 +45,11 @@ namespace Qoollo.SharpHttpServer.DemoConsoleApp
             {
                 return JsonConvert.SerializeObject("No Certificate Provided");
             }
+        }
+
+        public static string Other(HttpListenerRequest arg)
+        {
+            return "";
         }
     }
 }

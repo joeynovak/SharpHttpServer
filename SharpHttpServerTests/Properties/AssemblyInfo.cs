@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SharpHttpServer")]
-[assembly: AssemblyDescription("Simple HTTP server in C# based on System.Net.HttpListener")]
+[assembly: AssemblyTitle("SharpHttpServerTests")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Stn")]
-[assembly: AssemblyProduct("SharpHttpServer")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SharpHttpServerTests")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("89b60354-856a-4f3c-9435-db3cfd31515a")]
+[assembly: Guid("2879c855-a300-48f5-aada-7fea5c65e1d9")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,13 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion(Qoollo.AssemblySettings.AssemblyVersion)]
-[assembly: AssemblyFileVersion(Qoollo.AssemblySettings.AssemblyVersion)]
-
-namespace Qoollo
-{
-    internal static class AssemblySettings
-    {
-        public const string AssemblyVersion = "0.1.1";
-    }
-}
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

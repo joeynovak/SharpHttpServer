@@ -106,6 +106,11 @@ namespace Qoollo.Net.Http
             get { return router.GetRegistrator(HttpMethod.Put); }
         }
 
+        public RequestHandlerRegistrator GetRegistrator(HttpMethod httpMethod)
+        {
+            return router.GetRegistrator(httpMethod);
+        }
+
         public RequestHandlerRegistrator Delete
         {
             get { return router.GetRegistrator(HttpMethod.Delete); }
@@ -159,13 +164,18 @@ namespace Qoollo.Net.Http
             }
         }
 
+        public void Respond200(HttpListenerContext ctx, byte[] content)
+        {
+            ctx.Response.ContentLength64 = content.Length;
+            ctx.Response.OutputStream.Write(content, 0, content.Length);
+        }
+
         public void Respond200(HttpListenerContext ctx, string content)
         {
             ctx.Response.StatusCode = 200;
             ctx.Response.StatusDescription = "The request was fulfilled.";
             byte[] buf = Encoding.UTF8.GetBytes(content);
-            ctx.Response.ContentLength64 = buf.Length;
-            ctx.Response.OutputStream.Write(buf, 0, buf.Length);
+            Respond200(ctx, buf);            
         }
 
         public void Respond404(HttpListenerContext ctx)
@@ -182,9 +192,7 @@ namespace Qoollo.Net.Http
 
         #region IDisposable Support
 
-        private bool disposed = false; // To detect redundant calls
-        private string hostname;
-        private string _scheme;
+        private bool disposed = false; // To detect redundant calls        
 
         protected virtual void Dispose(bool disposing)
         {

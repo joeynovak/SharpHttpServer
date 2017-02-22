@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Qoollo.Net.Http
 {
-    class Router
+    public class Router
     {
         public Router()
         {

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Stn.SharpHttpServer</id>
+    <description>Simple HTTP server in C# based on System.Net.HttpListener - Forked from https://github.com/qoollo/SharpHttpServer</description>
+    <version>$version$</version>
+    <authors>Joey Novak, Qoollo</authors>
+    <owners>Stn, Qoollo</owners>
+    <licenseUrl>https://raw.githubusercontent.com/qoollo/SharpHttpServer/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/joeynovak/SharpHttpServer</projectUrl>    
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes>Fork allows https as well as client certificates.</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>HttpServer Server HttpListener Https SSLCertificate</tags>
+    <dependencies>	
+    </dependencies>
+  </metadata>
+</package>
